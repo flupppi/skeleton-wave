@@ -8,8 +8,9 @@ public class Song : ScriptableObject
     public string identifier;
     public string displayName;
     public AudioClip soundFile;
-    public float startDelay;
-    public float taktung;   //Zeit zwischen zwei Posen
+    public float startDelay;    //Zeit bis zur ersten Pose
+    public float taktung;       //Zeit zwischen zwei Posen
+    public float unterTaktung;  //passend zum Song für Beat-Animationen und dergleichen
     public float endDelay;
     public List<Pose> poses;
 

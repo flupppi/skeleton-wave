@@ -11,11 +11,16 @@ public class PoseDisplay : MonoBehaviour
         mPose = pose;
     }
 
+    public void setEvaluation()
+    {
+
+    }
 
 
     public void setHorizontalPosition(float x)
     {
-        transform.position = new Vector3(x*4, 0, 0);
+        transform.localPosition = new Vector3(x*4, 0, 0);
+        transform.localScale = new Vector3(1, 1, 1)*Mathf.Max(1.0f,(1.5f-Mathf.Abs(x/3)));
     }
 
 }
