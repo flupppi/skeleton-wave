@@ -8,6 +8,7 @@ public class SongPlayer : MonoBehaviour
 {
     public PoseDisplay poseDisplayPrefab;
     public Song cSong;
+    public PoseEvaluator evaluator;
     public Transform displaysNode;
     public List<PoseDisplay> poseDisplays;
     public UnityEvent bigBeat;
@@ -17,6 +18,7 @@ public class SongPlayer : MonoBehaviour
     private float timer;
     private float bigBeatcountDown;
     private float smallBeatcountDown;
+    private int nextPoseIndex = 0;
 
     
     void Start()
@@ -29,6 +31,10 @@ public class SongPlayer : MonoBehaviour
     void Update()
     {
         if (!isPlaying) return;
+        if (timer >= cSong.taktung * cSong.poses.Count + cSong.endDelay)
+        {
+            finishSong();
+        }
 
 
         timer += Time.deltaTime;
@@ -38,11 +44,13 @@ public class SongPlayer : MonoBehaviour
         {
             bigBeat.Invoke();
             bigBeatcountDown = cSong.taktung;
+            smallBeatcountDown = cSong.unterTaktung;
+            doEvaluation();
         }
         if (smallBeatcountDown <= 0)
         {
             smallBeat.Invoke();
-            smallBeatcountDown = cSong.taktung;
+            smallBeatcountDown = cSong.unterTaktung;
         }
 
         for (int i=0;i<poseDisplays.Count;i++)
@@ -51,6 +59,15 @@ public class SongPlayer : MonoBehaviour
             poseDisplay.setHorizontalPosition((i - (timer / cSong.taktung)));
         }
 
+    }
+
+    public void doEvaluation()
+    {
+        if (nextPoseIndex >= cSong.poses.Count) return;
+        PoseEvaluationResult result = evaluator.evaluatePose(cSong.poses[nextPoseIndex]);
+        poseDisplays[nextPoseIndex].setEvaluation(result);
+
+        nextPoseIndex++;
     }
 
     public void setSong(Song song)
@@ -64,6 +81,8 @@ public class SongPlayer : MonoBehaviour
         {
             PoseDisplay nPoseDisplay=Instantiate(poseDisplayPrefab, displaysNode);
             nPoseDisplay.transform.localPosition = new Vector3(0, 0, 0);
+            bigBeat.AddListener(nPoseDisplay.OnBigBeat);
+            nPoseDisplay.setPose(pose);
             poseDisplays.Add(nPoseDisplay);
         }
     }
@@ -72,7 +91,7 @@ public class SongPlayer : MonoBehaviour
     {
         isPlaying = true;
         timer = -cSong.startDelay;
-
+        bigBeatcountDown = cSong.startDelay;
     }
 
     public void interruptSong()
@@ -83,6 +102,12 @@ public class SongPlayer : MonoBehaviour
     public void resumeSong()
     {
         isPlaying = true;
+    }
+
+    public void finishSong()
+    {
+        isPlaying = false;
+        //show endscreen
     }
 
 

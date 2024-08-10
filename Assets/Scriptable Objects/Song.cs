@@ -12,6 +12,7 @@ public class Song : ScriptableObject
     public float taktung;       //Zeit zwischen zwei Posen
     public float unterTaktung;  //passend zum Song für Beat-Animationen und dergleichen
     public float endDelay;
-    public List<Pose> poses;
+    public PoseCollection poseCollection;
+    public List<Pose> poses { get { return poseCollection.poses; } }
 
 }

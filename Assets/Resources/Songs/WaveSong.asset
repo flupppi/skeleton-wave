@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 232ff82dea772f54fa28f237dc7930c1, type: 3}
-  m_Name: TestSong
+  m_Name: WaveSong
   m_EditorClassIdentifier: 
-  identifier: my_test_song
-  displayName: Dance with Ants in my pants
+  identifier: wave_song
+  displayName: Waving
   soundFile: {fileID: 0}
-  startDelay: 3
-  taktung: 2
-  unterTaktung: 0.5
-  endDelay: 5
-  poseCollection: {fileID: 11400000, guid: 58c6d084d57414c40bc681addcb6ad73, type: 2}
+  startDelay: 4
+  taktung: 3
+  unterTaktung: 0.75
+  endDelay: 3
+  poseCollection: {fileID: 11400000, guid: c3c560e6a5cc756488e9ec1ec8c4b555, type: 2}

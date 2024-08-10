@@ -153,3 +153,38 @@ MonoBehaviour:
     - boneName: bone_10
       position: {x: 4.81534, y: 0.0000006413504, z: 0}
       rotation: {x: 0, y: 0, z: -0.016377235, w: 0.99986595}
+  - poseName: Left Down Right Up
+    joints:
+    - boneName: bone_1
+      position: {x: -0.5947542, y: 11.815279, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7025832, w: 0.7116016}
+    - boneName: bone_2
+      position: {x: 5.7203, y: 0.00000015551464, z: 0}
+      rotation: {x: 0, y: 0, z: 0.0035547414, w: 0.9999937}
+    - boneName: bone_15
+      position: {x: -0.5205104, y: 2.1979911, z: 0}
+      rotation: {x: 0, y: -0, z: 0.76897705, w: 0.6392764}
+    - boneName: bone_16
+      position: {x: 4.261531, y: -0.00000013695897, z: 0}
+      rotation: {x: -0, y: -0, z: 0.4805513, w: 0.8769666}
+    - boneName: bone_17
+      position: {x: -0.20354505, y: -2.2530906, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7379662, w: 0.6748377}
+    - boneName: bone_18
+      position: {x: 3.7508755, y: -0.014512133, z: 0}
+      rotation: {x: -0, y: -0, z: 0.44492134, w: 0.8955696}
+    - boneName: bone_19
+      position: {x: 1.3331685, y: 0.000010046521, z: 0}
+      rotation: {x: 0, y: 0, z: -0.083433494, w: 0.99651337}
+    - boneName: bone_7
+      position: {x: -0.7372444, y: 0.46750706, z: 0}
+      rotation: {x: 0, y: 0, z: 0.9955649, w: 0.09407811}
+    - boneName: bone_8
+      position: {x: 4.931898, y: -0.0000009457911, z: 0}
+      rotation: {x: 0, y: 0, z: 0.059666827, w: 0.99821836}
+    - boneName: bone_9
+      position: {x: -0.56491446, y: -0.579522, z: 0}
+      rotation: {x: 0, y: 0, z: -0.9971191, w: 0.075852096}
+    - boneName: bone_10
+      position: {x: 4.81534, y: 0.0000006413504, z: 0}
+      rotation: {x: 0, y: 0, z: -0.016377235, w: 0.99986595}
