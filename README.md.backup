@@ -3,7 +3,7 @@
 
 ## Tasks
 
-- [ ] Rigging Sprites with the 2D Animation Package
+- [] Rigging Sprites with the 2D Animation Package
 	- [ ] Import 2D Animation Package
 	- [ ] Use Sample Character
 		- [ ] Find correct settings for Bones Geometry and Weights
@@ -46,7 +46,7 @@
 		- Check if both values are bigger than the threshold value
 		- return true of false
 	- [ ] Game Loop for iterating poses and checking if they are valid 
-		- 
+		
 	
 
 ## Bugs
