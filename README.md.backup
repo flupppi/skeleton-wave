@@ -19,6 +19,33 @@
 		- [ ] Add a sprite skin component to the game object.
 		- [ ] automaticcally create bones to show them in the hierarchy.
 		- [ ] Now you can use keyframe animations to animate the rig. We dont really want to do that :) We will just IK solve the joints.
+		
+
+- [ ] Create a data structure to store the bones in.
+	- [ ] Class Pose
+		- poseName
+		- List of BoneTransforms 
+
+	- [ ] BoneTransform class
+		- boneName class
+		- position Vector3
+		- rotation Quaternion
+		- Constructor to assing the values
+	- [ ] Pose Collection Class
+		- Scriptable Object storing a list of different poses.
+	- [ ] Capture Current Pose Method
+		- Create new pose
+		- iterate trhough all bones in the rig and store their transforms
+	- [ ] Are Poses Similar Method
+		- Compare Current pose to predefined pose
+		- Position Threshold and Rotation Threshold
+		- Iterate through bones in predefined pose
+		- find bones by name
+		- Calculate the Distance between bones
+		- Calculate the Quaterion Rotation between bones
+		- Check if both values are bigger than the threshold value
+		- return true of 
+	
 
 ## Bugs
 
