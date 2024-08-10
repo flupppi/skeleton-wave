@@ -44,15 +44,14 @@
 		- return true of false
 	- [x] Game Loop for iterating poses and checking if they are valid
 	- [ ] Create In-Game Pose Editor
-		- [ ] Add colliders to interact with to each bone that should be able to interact with.
+		- [x] Add colliders to interact with to each bone that should be able to interact with.
 		- [ ] Create Method to select the bones (Raycasting the colliders)
 		- [ ] Create Method to rotate the bone depending on the mouse movement after selection
-		- [ ] Identify each bone with a Tag
+		- [x] Identify each bone with a Tag
 		- [ ] Find correct settings for the rotation sensitivity
 		- [ ] Add Visual Feedback for the Selection
 		- [ ] (Optional) Limit the rotation
 		- [ ] (Optional) Make joint positions moveable, Use IK to make the rest of the skeleton follow this joint.
-	
 		
 	
 
