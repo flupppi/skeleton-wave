@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5851c2068247b234090ddf16e3c4bb1a, type: 3}
-  m_Name: Perfect
+  m_Script: {fileID: 11500000, guid: c9a2076a86515814db5a5687949a802f, type: 3}
+  m_Name: Walzer
   m_EditorClassIdentifier: 
-  identifier: perfect
-  color: {r: 1, g: 0, b: 0.8782673, a: 1}
-  score: 1000
-  sprite: {fileID: 0}
-  sound: {fileID: 0}
+  poses: []

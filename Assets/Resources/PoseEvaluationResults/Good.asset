@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: good
   color: {r: 0.32609335, g: 0.9056604, b: 0, a: 1}
+  score: 200
   sprite: {fileID: 0}
   sound: {fileID: 0}

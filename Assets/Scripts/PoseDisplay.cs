@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PoseDisplay : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PoseDisplay : MonoBehaviour
     Animator mAnimator;
 
     public SpriteRenderer evaluationDisplay;
+    public TMP_Text evalTxtDisplay;
     public Transform rootBone;
 
     void Start()
@@ -23,7 +25,11 @@ public class PoseDisplay : MonoBehaviour
 
     public void setEvaluation(PoseEvaluationResult evaluation)
     {
-        evaluationDisplay.color = evaluation.color;
+        Color color = evaluation.color;
+        color.a = 0.5f;
+        //evaluationDisplay.color = color;
+        evalTxtDisplay.text = evaluation.identifier;
+        evalTxtDisplay.color = evaluation.color;
     }
 
 
