@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: 
   soundFile: {fileID: 8300000, guid: 99df1f02ef2a752489d9ba060ec3f632, type: 3}
   startDelay: 4.6
-  taktung: 3.4285715
-  unterTaktung: 0.8571429
+  taktung: 1.714286
+  unterTaktung: 0.4285714
   endDelay: 12
   poseCollection: {fileID: 11400000, guid: eef815693b5ba1d409f3c61c910c991d, type: 2}

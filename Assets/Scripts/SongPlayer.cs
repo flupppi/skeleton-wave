@@ -71,6 +71,7 @@ public class SongPlayer : MonoBehaviour
         PoseEvaluationResult result = evaluator.evaluatePose(cSong.poses[nextPoseIndex]);
         poseDisplays[nextPoseIndex].setEvaluation(result);
         gameStats.score += result.score;
+        gameStats.countUpEvaluation(result.identifier);
         nextPoseIndex++;
     }
 
