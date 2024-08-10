@@ -21,7 +21,8 @@ public class JointRotator : MonoBehaviour
 
         if (selectedJoint != null)
         {
-            RotateJoint();
+            //RotateJointRelative();
+            RotateJointTowardsMouse();
         }
 
         if (Input.GetMouseButtonUp(0)) // On mouse release
@@ -46,11 +47,20 @@ public class JointRotator : MonoBehaviour
         }
     }
 
-    void RotateJoint()
+    void RotateJointRelative()
     {
         Vector3 mouseDelta = Input.mousePosition - initialMousePosition;
         float angle = mouseDelta.x; // Modify this to control rotation sensitivity
 
         selectedJoint.rotation = initialRotation * Quaternion.Euler(0, 0, angle);
+    }
+
+    void RotateJointTowardsMouse()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; 
+        Vector3 direction = mousePosition - selectedJoint.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        selectedJoint.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
