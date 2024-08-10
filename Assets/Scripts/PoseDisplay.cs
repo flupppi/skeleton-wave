@@ -35,14 +35,16 @@ public class PoseDisplay : MonoBehaviour
 
     public void setHorizontalPosition(float x)
     {
-        transform.localPosition = new Vector3(x*4, 0, 0);
+        float y = Mathf.Cos(x*2) * 0.2f;
+        transform.localPosition = new Vector3(x*4, y, 0);
         transform.localScale = new Vector3(1, 1, 1)*Mathf.Max(1.0f,(1.5f-Mathf.Abs(x/3)));
+        
     }
 
 
     public void OnBigBeat()
     {
-        mAnimator.Play("PoseDisplay_Highlight");
+        mAnimator.Play("PoseDisplay_Highlight",-1,0.0f);
     }
 
 
@@ -55,7 +57,6 @@ public class PoseDisplay : MonoBehaviour
             t.localPosition = currentBoneTransform.position;
             t.localRotation = currentBoneTransform.rotation;
         }
-
 
     }
 

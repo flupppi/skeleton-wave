@@ -7,9 +7,10 @@ using UnityEngine.Events;
 public class SongPlayer : MonoBehaviour
 {
     public PoseDisplay poseDisplayPrefab;
+    public AudioSource songAudio;
     public Song cSong;
     public PoseEvaluator evaluator;
-    public Transform endScreen;
+    public EndScreenDisplay endScreen;
     public Transform displaysNode;
     public List<PoseDisplay> poseDisplays;
     public UnityEvent bigBeat;
@@ -20,10 +21,12 @@ public class SongPlayer : MonoBehaviour
     private float bigBeatcountDown;
     private float smallBeatcountDown;
     private int nextPoseIndex = 0;
+    private GameStats gameStats;
 
     
     void Start()
     {
+        gameStats = new GameStats();
         prepareSong();
         startSong();
     }
@@ -67,7 +70,8 @@ public class SongPlayer : MonoBehaviour
         if (nextPoseIndex >= cSong.poses.Count) return;
         PoseEvaluationResult result = evaluator.evaluatePose(cSong.poses[nextPoseIndex]);
         poseDisplays[nextPoseIndex].setEvaluation(result);
-
+        gameStats.score += result.score;
+        gameStats.countUpEvaluation(result.identifier);
         nextPoseIndex++;
     }
 
@@ -86,6 +90,15 @@ public class SongPlayer : MonoBehaviour
             nPoseDisplay.setPose(pose);
             poseDisplays.Add(nPoseDisplay);
         }
+        songAudio.clip = cSong.soundFile;
+
+        Debug.Log("loading Pose");
+        foreach (Transform t in evaluator.rootBoneTransform.GetComponentsInChildren<Transform>())
+        {
+            BoneTransform currentBoneTransform = cSong.poses[0].joints.Find(b => b.boneName == t.name);
+            t.localPosition = currentBoneTransform.position;
+            t.localRotation = currentBoneTransform.rotation;
+        }
     }
 
     public void startSong()
@@ -93,6 +106,7 @@ public class SongPlayer : MonoBehaviour
         isPlaying = true;
         timer = -cSong.startDelay;
         bigBeatcountDown = cSong.startDelay;
+        songAudio.Play();
     }
 
     public void interruptSong()
@@ -109,7 +123,7 @@ public class SongPlayer : MonoBehaviour
     {
         isPlaying = false;
         //show endscreen
-        endScreen.gameObject.SetActive(true);
+        endScreen.show(gameStats);
     }
 
 

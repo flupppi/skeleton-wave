@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5851c2068247b234090ddf16e3c4bb1a, type: 3}
   m_Name: Terrible
   m_EditorClassIdentifier: 
-  identifier: Terrible
+  identifier: terrible
   color: {r: 0.4716981, g: 0, b: 0, a: 1}
   score: -10
   sprite: {fileID: 0}
