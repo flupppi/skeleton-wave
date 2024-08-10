@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 232ff82dea772f54fa28f237dc7930c1, type: 3}
-  m_Name: WaveSong
+  m_Name: WalzerSong
   m_EditorClassIdentifier: 
-  identifier: wave_song
-  displayName: Waving
+  identifier: walzer
+  displayName: 
   soundFile: {fileID: 0}
-  startDelay: 4
-  taktung: 1
-  unterTaktung: 0.25
-  endDelay: 3
-  poseCollection: {fileID: 11400000, guid: c3c560e6a5cc756488e9ec1ec8c4b555, type: 2}
+  startDelay: 6
+  taktung: 3
+  unterTaktung: 1
+  endDelay: 12
+  poseCollection: {fileID: 11400000, guid: eef815693b5ba1d409f3c61c910c991d, type: 2}

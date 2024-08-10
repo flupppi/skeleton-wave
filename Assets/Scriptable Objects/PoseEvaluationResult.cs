@@ -8,6 +8,7 @@ public class PoseEvaluationResult : ScriptableObject
 {
     public string identifier;
     public Color color;
+    public int score;
     public Sprite sprite;
     public AudioClip sound;
 }

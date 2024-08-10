@@ -9,6 +9,7 @@ public class SongPlayer : MonoBehaviour
     public PoseDisplay poseDisplayPrefab;
     public Song cSong;
     public PoseEvaluator evaluator;
+    public Transform endScreen;
     public Transform displaysNode;
     public List<PoseDisplay> poseDisplays;
     public UnityEvent bigBeat;
@@ -108,6 +109,7 @@ public class SongPlayer : MonoBehaviour
     {
         isPlaying = false;
         //show endscreen
+        endScreen.gameObject.SetActive(true);
     }
 
 
