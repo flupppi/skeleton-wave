@@ -6,7 +6,7 @@ using UnityEngine.U2D.Animation;
 using UnityEngine.XR;
 
 
-public class BoneColorChanger : MonoBehaviour
+public class BoneHighlight : MonoBehaviour
 {
 
     private Bone2D selectedBone;
