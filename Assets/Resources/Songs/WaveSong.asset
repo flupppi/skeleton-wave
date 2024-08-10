@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: wave_song
   displayName: Waving
-  soundFile: {fileID: 0}
+  soundFile: {fileID: 8300000, guid: 99df1f02ef2a752489d9ba060ec3f632, type: 3}
   startDelay: 4
   taktung: 1
   unterTaktung: 0.25

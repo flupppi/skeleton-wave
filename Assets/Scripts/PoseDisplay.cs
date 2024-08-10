@@ -42,6 +42,7 @@ public class PoseDisplay : MonoBehaviour
 
     public void OnBigBeat()
     {
+        Debug.Log("Big Beat");
         mAnimator.Play("PoseDisplay_Highlight");
     }
 
@@ -55,7 +56,6 @@ public class PoseDisplay : MonoBehaviour
             t.localPosition = currentBoneTransform.position;
             t.localRotation = currentBoneTransform.rotation;
         }
-
 
     }
 
