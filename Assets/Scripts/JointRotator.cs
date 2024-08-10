@@ -7,6 +7,10 @@ public class JointRotator : MonoBehaviour
     private Transform selectedJoint;
     private Vector3 initialMousePosition;
     private Quaternion initialRotation;
+    [SerializeField] private GameObject hightlightPrefab;
+    public GameObject highlight;
+
+
 
     void Update()
     {
@@ -22,6 +26,8 @@ public class JointRotator : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) // On mouse release
         {
+            if(highlight!=null) 
+                Destroy(highlight);
             selectedJoint = null;
         }
     }
@@ -36,6 +42,7 @@ public class JointRotator : MonoBehaviour
             selectedJoint = hit.transform;
             initialMousePosition = Input.mousePosition;
             initialRotation = selectedJoint.rotation;
+            highlight = Instantiate(hightlightPrefab, selectedJoint.transform);
         }
     }
 
