@@ -27,7 +27,7 @@
 		- List of BoneTransforms 
 
 	- [ ] BoneTransform class
-		- boneName class
+		- boneName string
 		- position Vector3
 		- rotation Quaternion
 		- Constructor to assing the values
@@ -45,6 +45,8 @@
 		- Calculate the Quaterion Rotation between bones
 		- Check if both values are bigger than the threshold value
 		- return true of false
+	- [ ] Game Loop for iterating poses and checking if they are valid 
+		
 	
 
 ## Bugs
