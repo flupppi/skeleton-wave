@@ -18,7 +18,7 @@ public class PoseDisplay : MonoBehaviour
     public void setPose(Pose pose)
     {
         mPose = pose;
-        //loadPose();
+        loadPose();
     }
 
     public void setEvaluation(PoseEvaluationResult evaluation)
@@ -43,14 +43,13 @@ public class PoseDisplay : MonoBehaviour
     private void loadPose()
     {
         Debug.Log("loading Pose");
-        foreach(BoneTransform joint in mPose.joints)
+        foreach (Transform t in rootBone.GetComponentsInChildren<Transform>())
         {
-            Debug.Log("joint.bonename: "+joint.boneName);
-            Transform child = rootBone.Find(joint.boneName);
-            if (joint.boneName == "bone_1") child = rootBone;
-            child.localPosition = joint.position;
-            child.localRotation = joint.rotation;
+            BoneTransform currentBoneTransform = mPose.joints.Find(b => b.boneName == t.name);
+            t.localPosition = currentBoneTransform.position;
+            t.localRotation = currentBoneTransform.rotation;
         }
+
 
     }
 
