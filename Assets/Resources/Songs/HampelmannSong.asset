@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232ff82dea772f54fa28f237dc7930c1, type: 3}
+  m_Name: HampelmannSong
+  m_EditorClassIdentifier: 
+  identifier: 
+  displayName: 
+  soundFile: {fileID: 8300000, guid: 99df1f02ef2a752489d9ba060ec3f632, type: 3}
+  startDelay: 4.6
+  taktung: 6.857143
+  unterTaktung: 1.714286
+  endDelay: 0
+  poseCollection: {fileID: 11400000, guid: ea332022207fbbe408fd14fc18ba17db, type: 2}

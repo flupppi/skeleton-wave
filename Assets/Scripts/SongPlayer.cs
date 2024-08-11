@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 
 
 public class SongPlayer : MonoBehaviour
@@ -26,7 +28,7 @@ public class SongPlayer : MonoBehaviour
     
     void Start()
     {
-        gameStats = new GameStats();
+        gameStats = new GameStats(cSong);
         prepareSong();
         startSong();
     }
@@ -63,6 +65,32 @@ public class SongPlayer : MonoBehaviour
             poseDisplay.setHorizontalPosition((i - (timer / cSong.taktung)));
         }
 
+    }
+
+    public void restart()
+    {
+        gameStats = new GameStats(cSong);
+        songAudio.Stop();
+        smallBeatcountDown = 0;
+        Debug.Log("loading Pose");
+        foreach (Transform t in evaluator.rootBoneTransform.GetComponentsInChildren<Transform>())
+        {
+            BoneTransform currentBoneTransform = cSong.poses[0].joints.Find(b => b.boneName == t.name);
+            t.localPosition = currentBoneTransform.position;
+            t.localRotation = currentBoneTransform.rotation;
+        }
+
+        foreach(PoseDisplay poseDisplay in poseDisplays) {
+            poseDisplay.reset();
+        }
+        nextPoseIndex = 0;
+
+        startSong();
+    }
+
+    public void returnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void doEvaluation()
@@ -113,11 +141,14 @@ public class SongPlayer : MonoBehaviour
     public void interruptSong()
     {
         isPlaying = false;
+        songAudio.Pause();
     }
 
     public void resumeSong()
     {
         isPlaying = true;
+        songAudio.UnPause();
+
     }
 
     public void finishSong()
