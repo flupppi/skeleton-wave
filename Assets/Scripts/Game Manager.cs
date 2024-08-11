@@ -33,13 +33,29 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // This GameObject won't be destroyed when loading a new scene
         }
     }
-    private void Start()
+
+    private void OnEnable()
     {
+        // Register the callback to be called every time a scene is loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // Unregister the callback
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Reassign references to the menus whenever a scene is loaded
         settingsMenu = FindObjectOfType<SettingsMenu>();
         mainMenu = FindObjectOfType<MainMenu>();
-        settingsMenu?.gameObject.SetActive(false);
 
+        // Optionally, you can set the settings menu to inactive when the scene loads
+        settingsMenu?.gameObject.SetActive(false);
     }
+
     // Method to quit the application
     public void QuitGame()
     {
@@ -63,13 +79,11 @@ public class GameManager : MonoBehaviour
     public void SetSpeedDifficulty(int newSpeed)
     {
         speedDifficultyIndex = newSpeed;
-        // You can also update the audio settings here
     }
 
     public void SetDanceDifficulty(int newDance)
     {
         danceDifficultyIndex = newDance;
-        // You can apply difficulty settings here
     }
 
     public void SetSong(int newSong)
@@ -79,16 +93,12 @@ public class GameManager : MonoBehaviour
 
     public AudioClip GetSongDifficulty()
     {
-        AudioClip song = songs[songIndex%songs.Count-1];
-        return song;
+        return songs[songIndex];
     }
 
     public PoseCollection GetDanceDifficulty()
     {
-        PoseCollection poseCollection = poseCollections[danceDifficultyIndex%poseCollections.Count-1];
-
-
-        return poseCollection;
+        return poseCollections[danceDifficultyIndex];
     }
 
     public void ShowSettingsMenu()
@@ -96,7 +106,7 @@ public class GameManager : MonoBehaviour
         if (mainMenu != null && settingsMenu != null)
         {
             mainMenu.gameObject.SetActive(false);
-        settingsMenu.gameObject.SetActive(true);
+            settingsMenu.gameObject.SetActive(true);
         }
     }
 
@@ -107,6 +117,5 @@ public class GameManager : MonoBehaviour
             settingsMenu.gameObject.SetActive(false);
             mainMenu.gameObject.SetActive(true);
         }
-
     }
 }

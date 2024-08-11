@@ -97,7 +97,7 @@ public class SongPlayer : MonoBehaviour
 
     public void returnToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameManager.Instance.LoadMainMenu();
     }
 
     public void doEvaluation()
