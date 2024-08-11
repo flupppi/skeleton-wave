@@ -29,6 +29,7 @@ public class SongPlayer : MonoBehaviour
     void Start()
     {
         gameStats = new GameStats(cSong);
+        loadSong();
         prepareSong();
         startSong();
     }
@@ -65,6 +66,12 @@ public class SongPlayer : MonoBehaviour
             poseDisplay.setHorizontalPosition((i - (timer / cSong.taktung)));
         }
 
+    }
+
+    public void loadSong()
+    {
+        cSong.poseCollection = GameManager.Instance.GetDanceDifficulty();
+        cSong.soundFile = GameManager.Instance.GetSongDifficulty();
     }
 
     public void restart()

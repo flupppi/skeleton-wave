@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poseDisplayPrefab: {fileID: 5718172483021699771, guid: 8b49f6c86cb2ef54fb552765f7837b88, type: 3}
   songAudio: {fileID: 1277219298}
-  cSong: {fileID: 11400000, guid: e29775e457378b1468a7fc99927dc04f, type: 2}
+  cSong: {fileID: 11400000, guid: 3c55ee85c888216458a5eff6e473c784, type: 2}
   evaluator: {fileID: 999638595}
   endScreen: {fileID: 165415135}
   displaysNode: {fileID: 243545285}
