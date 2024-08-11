@@ -107,6 +107,7 @@ public class SongPlayer : MonoBehaviour
         timer = -cSong.startDelay;
         bigBeatcountDown = cSong.startDelay;
         songAudio.Play();
+        endScreen.hide();
     }
 
     public void interruptSong()

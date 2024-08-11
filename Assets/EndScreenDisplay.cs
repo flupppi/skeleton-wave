@@ -6,6 +6,8 @@ using TMPro;
 public class EndScreenDisplay : MonoBehaviour
 {
     public TMP_Text scoreDisplay;
+    public Transform evaluationCountDisplaysParent;
+    public List<TMP_Text> evaluationCountDisplays;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +24,18 @@ public class EndScreenDisplay : MonoBehaviour
     {
         scoreDisplay.text = ""+stats.score;
         gameObject.SetActive(true);
+        evaluationCountDisplays[0].text = "" + stats.evaluationCounts["perfect"];
+        evaluationCountDisplays[1].text = "" + stats.evaluationCounts["awesome"];
+        evaluationCountDisplays[2].text = "" + stats.evaluationCounts["good"];
+        evaluationCountDisplays[3].text = "" + stats.evaluationCounts["okay"];
+        evaluationCountDisplays[4].text = "" + stats.evaluationCounts["bad"];
+        evaluationCountDisplays[5].text = "" + stats.evaluationCounts["terrible"];
+
+    }
+
+
+    public void hide()
+    {
+        gameObject.SetActive(false);
     }
 }
