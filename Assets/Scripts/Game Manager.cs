@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         settingsMenu = FindObjectOfType<SettingsMenu>();
         mainMenu = FindObjectOfType<MainMenu>();
+        settingsMenu?.gameObject.SetActive(false);
 
     }
     // Method to quit the application
