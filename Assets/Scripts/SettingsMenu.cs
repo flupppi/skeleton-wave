@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SetSpeedDifficulty(int newSpeed)
     {
-        
+        GameManager.Instance.SetSpeedDifficulty(newSpeed);  
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetDanceDifficulty(int newDance)
     {
-        
+        GameManager.Instance.SetDanceDifficulty(newDance);
+    }
+
+    public void SetSong(int newSong)
+    {
+        GameManager.Instance.SetSong(newSong);
+    }
+    public void ShowMainMenu()
+    {
+        GameManager.Instance.ShowMainMenu();
     }
 }
