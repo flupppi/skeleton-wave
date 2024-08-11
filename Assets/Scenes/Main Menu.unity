@@ -5408,7 +5408,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71d2bd86ac5e3864abb054941b3e8337, type: 2}
   songIndex: 0
   songs:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 99df1f02ef2a752489d9ba060ec3f632, type: 3}
   speedDifficultyIndex: 0
   settingsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
