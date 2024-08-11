@@ -6,9 +6,10 @@ public class GameStats
 {
     public int score;
     public Dictionary<string, int> evaluationCounts;
+    public int totalPoses = 0;
 
 
-    public GameStats()
+    public GameStats(Song cSong)
     {
         evaluationCounts = new Dictionary<string, int>();
         evaluationCounts.Add("perfect", 0);
@@ -18,6 +19,7 @@ public class GameStats
         evaluationCounts.Add("bad", 0);
         evaluationCounts.Add("terrible", 0);
 
+        totalPoses = cSong.poses.Count;
 
     }
 

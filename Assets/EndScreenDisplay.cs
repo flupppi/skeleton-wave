@@ -7,7 +7,10 @@ public class EndScreenDisplay : MonoBehaviour
 {
     public TMP_Text scoreDisplay;
     public Transform evaluationCountDisplaysParent;
+    public Transform schildGeist;
     public List<TMP_Text> evaluationCountDisplays;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +34,39 @@ public class EndScreenDisplay : MonoBehaviour
         evaluationCountDisplays[4].text = "" + stats.evaluationCounts["bad"];
         evaluationCountDisplays[5].text = "" + stats.evaluationCounts["terrible"];
 
+
+        schildGeist.gameObject.SetActive(true);
+        if(2*(stats.evaluationCounts["bad"]+ stats.evaluationCounts["terrible"])>=stats.totalPoses)
+        {
+            schildGeist.Find("youre really bad").gameObject.SetActive(true);
+        } else if(3* stats.evaluationCounts["perfect"]>= stats.totalPoses)
+        {
+            schildGeist.Find("deadly moves").gameObject.SetActive(true);
+        }
+        else if (2 * (stats.evaluationCounts["perfect"] + stats.evaluationCounts["awesome"]) >= stats.totalPoses)
+        {
+            schildGeist.Find("youre great").gameObject.SetActive(true);
+        }
+        else if (2 * (stats.evaluationCounts["perfect"] + stats.evaluationCounts["awesome"]+ stats.evaluationCounts["good"]) >= stats.totalPoses)
+        {
+            schildGeist.Find("spooky moves").gameObject.SetActive(true);
+        }
+        else if (2 * (stats.evaluationCounts["perfect"] + stats.evaluationCounts["awesome"]+ stats.evaluationCounts["good"] + stats.evaluationCounts["okay"]) >= stats.totalPoses)
+        {
+            schildGeist.Find("cracking moves").gameObject.SetActive(true);
+        }
     }
 
 
     public void hide()
     {
         gameObject.SetActive(false);
+        schildGeist.gameObject.SetActive(false);
+        schildGeist.Find("cracking moves").gameObject.SetActive(false);
+        schildGeist.Find("spooky moves").gameObject.SetActive(false);
+        schildGeist.Find("deadly moves").gameObject.SetActive(false);
+        schildGeist.Find("youre great").gameObject.SetActive(false);
+        schildGeist.Find("youre really bad").gameObject.SetActive(false);
+
     }
 }

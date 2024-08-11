@@ -47,6 +47,10 @@ public class PoseDisplay : MonoBehaviour
         mAnimator.Play("PoseDisplay_Highlight",-1,0.0f);
     }
 
+    public void reset()
+    {
+        evalTxtDisplay.text = "";
+    }
 
     private void loadPose()
     {
